@@ -48,7 +48,7 @@ let seleccion
 
 //Menú
     
-/*
+
     while (exit == 0) {
         seleccion =  prompt("Eliga la dificultad (3: Dificil 2: Medio 1:facil)")
 
@@ -72,7 +72,7 @@ let seleccion
             }
 
     } 
-    */
+    
 
     //Función Que crea los cuadrados
     document.addEventListener("DOMContentLoaded", ()=>{
