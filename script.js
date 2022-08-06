@@ -47,6 +47,8 @@ let exit = 0
 let seleccion 
 
 //Menú
+    
+/*
     while (exit == 0) {
         seleccion =  prompt("Eliga la dificultad (3: Dificil 2: Medio 1:facil)")
 
@@ -70,7 +72,23 @@ let seleccion
             }
 
     } 
+    */
 
+    //Función Que crea los cuadrados
+    document.addEventListener("DOMContentLoaded", ()=>{
+        crearCuadrados()
+        function crearCuadrados () {
+            const tableroJuego = document.getElementById("tablero")
+            for (let i = 0; i < 80; i++) {
+                let cuadrado = document.createElement("div")
+                cuadrado.classList.add("cuadrado")
+                cuadrado.setAttribute("id", i +  1)
+                tableroJuego.appendChild(cuadrado)
+                
+            }
+        }
+    })
+    
     //Función pregunta
     function pregunta( palabra) {
         console.log(palabra)
