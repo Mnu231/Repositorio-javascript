@@ -8,6 +8,13 @@ class palbra{
     }
 }
 */
+//Botones
+const boton1 = document.getElementById("botonPista")
+let parrafo = document.getElementById ("parrafoPista")
+boton1.addEventListener("click", () => {
+    console.log("diste click en add Event")
+    parrafo.innerText =  palabras[0].pista
+})
 
 //Objetos
 const palabra1 = new palbra("netscape" , 8 , "Empresa creadora de javascript" , 10)
@@ -40,6 +47,7 @@ const pregunta2 = 'Metodo que aparta el ultimo elemento de un array'
 const pregunta3 = 'Estructura de objetos que representa una página HTML'
 
 //Variables
+
 let ContadorPistas = 3;
 let i;
 let respuestaUser
@@ -47,8 +55,7 @@ let exit = 0
 let seleccion 
 
 //Menú
-    
-
+/*
     while (exit == 0) {
         seleccion =  prompt("Eliga la dificultad (3: Dificil 2: Medio 1:facil)")
 
@@ -72,14 +79,16 @@ let seleccion
             }
 
     } 
-    
+    */
 
+    
     //Función Que crea los cuadrados
+    
     document.addEventListener("DOMContentLoaded", ()=>{
         crearCuadrados()
         function crearCuadrados () {
             const tableroJuego = document.getElementById("tablero")
-            for (let i = 0; i < 80; i++) {
+            for (let i = 0; i < 81; i++) {
                 let cuadrado = document.createElement("div")
                 cuadrado.classList.add("cuadrado")
                 cuadrado.setAttribute("id", i +  1)

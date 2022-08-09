@@ -15,7 +15,7 @@ h1{
 }
 #tablero{
     display: grid;
-    grid-template-columns: repeat(10 , 1fr);
+    grid-template-columns: repeat(9 , 1fr);
     grid-gap:5px;
     padding: 10px;
 }
@@ -23,4 +23,21 @@ h1{
     border: 2px solid white;
     min-width: 60px;
     min-height: 60px;
+
+}
+#botonPista{
+    
+    height: 50px;
+    background-color:rgb(18, 18, 59);
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    border: 3px;
+    border-style: solid;
+    border-color: white; 
+    cursor: pointer;
+}
+
+#parrafoPista{
+    font-size: xx-large;
 }
