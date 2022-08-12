@@ -20,10 +20,18 @@ h1{
     padding: 10px;
 }
 .cuadrado{
-    border: 2px solid white;
-    min-width: 60px;
-    min-height: 60px;
+    background-color: rgb(18, 18, 59);
+    border: 2px solid rgb(18, 18, 59);
+    min-width: 45px;
+    min-height: 45px;
+    
 
+
+}
+#contenedorTeclado{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #botonPista{
     
@@ -35,7 +43,24 @@ h1{
     border: 3px;
     border-style: solid;
     border-color: white; 
+    
+    
+}
+.tecla{
+    margin: 2px;
+    width: 35px;
+    height: 50px;
+    background-color:rgb(18, 18, 59);
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    border: 3px;
+    border-style: solid;
+    border-color: white; 
     cursor: pointer;
+}
+.botonLargo{
+    width: 75px;
 }
 
 #parrafoPista{
