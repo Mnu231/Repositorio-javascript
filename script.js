@@ -1,25 +1,12 @@
-/*
-class palbra{
-    constructor (respuesta, longitud, pista, puntos ){
-        this.respuesta = respuesta
-        this.longitud = longitud
-        this.pista  = pista
-        this.puntos = puntos    
-    }
-}
-*/
-//Botones
-/*
-const boton1 = document.getElementById("botonPista")
-let parrafo = document.getElementById ("parrafoPista")
-boton1.addEventListener("click", () => {
-    console.log("diste click en add Event")
-    parrafo.innerText =  palabras[0].pista
-})
-*/
+
+
 //Objetos
 const palabra1 = new palbra("netscape" , 8 , "Empresa creadora de javascript" , 10)
-const palabra2 = new palbra("pop" , 3 , "Metodo que aparta el ultimo elemento de un array" , 10)
+let palabra2 = structuredClone(palabra1)
+palabra2.respuesta = "pop"
+palabra2.longitud = 3 
+palabra2.pista = "Metodo que aparta el ultimo elemento de un array"
+
 const palabra3 = new palbra("dom" , 3 , "Estructura de objetos que representa una página HTML" , 10)
 const palabra4 = new palbra("id" , 2 , "Empieza con B, tipo de dato que solo puede obtener 2 valores" , 10)
 const palabra5 = new palbra("it" , 2, "Palabra en plural, colección de datos relacionados como una entidad" , 10)
@@ -54,50 +41,22 @@ let i;
 let respuestaUser
 let exit = 0
 let seleccion 
-
-//Menú
-/*
-    while (exit == 0) {
-        seleccion =  prompt("Eliga la dificultad (3: Dificil 2: Medio 1:facil)")
-
-            switch (seleccion) {
-        
-                
-                case "1": 
-                    i = 0
-                    pregunta ( palabras[i] ) 
-                break;
-        
-                case "2":
-                    i = 1 
-                    pregunta ( palabras[i]) 
-                break;
-        
-                case "3": 
-                    i = 2
-                    pregunta ( palabras[i]) 
-                break;
-            }
-
-    } 
-    */
-
-   
    
    //Función Que crea los cuadrados
    
    document.addEventListener("DOMContentLoaded", ()=>{
     //Teclas
     const teclas = document.querySelectorAll(".filaTeclado Button")
-
+    
     for (let i = 0; i < teclas.length; i++) {
         teclas[i].onclick = ({ target }) =>{
-            const tecla = target.getAttribute("data-key");
-
+            const tecla = target.getAttribute("data-key")
+             localStorage.setItem('mensaje' ,  tecla)
+            
             console.log(tecla)
         }
     }
-
+    
        crearCuadrados()
        //Funciones de Pintar cuadrados
        pintarCuadrados()
@@ -154,21 +113,15 @@ let seleccion
     }
     
     //Función pregunta
+
+
+
     function pregunta( palabra) {
         console.log(palabra)
         
         respUse =  prompt(palabra.pista).toLowerCase()
         
-        
-        if (palabra.respuesta == respUse ) {
-            
-            alert ('correcto')
-            exit = 1
-            
-        }
-        else{
-            alert('vuelva a intentarlo') 
-        }
+        (palabra.respuesta == respUse ) ? alert('Correcto') : alert('Vuelva a intentarlo')
        
     }
  
