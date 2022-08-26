@@ -43,7 +43,46 @@ let seleccion
 let palabraActual = []
 
 //Codigo
-cuadrado()
+
+/*
+
+ Clima
+
+*/ 
+const API_KEY = "c577dd7021ff563fb4f3ed2a24f3bf8b";
+const divClima = document.getElementById("clima")
+fetch(`http://api.openweathermap.org/geo/1.0/direct?q=BuenosAires,CABA,arg&limit=1&appid=${API_KEY}`)
+.then(response => response.json())
+.then(data => {
+    const {lat , lon , name : nombre , state : provincia , country : pais} = data[0]
+    
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=sp&units=metric&appid=${API_KEY}`)
+    .then(response => response.json())
+    .then(({weather , main}) =>{
+        console.log(weather, main)
+
+        divClima.innerHTML = `
+        <div>
+        <img src="https://img.icons8.com/office/40/000000/windy-weather--v1.png"/>
+        <h2>${main.temp}º</h2>
+        <h3>Buenos Aires</h3>
+        <p>Sensación Termica: ${main.feels_like}º</p>
+        <p>Humedad: ${main.humidity}%</p>
+        </div>
+        
+        `
+    })
+    })
+
+
+
+
+
+/*
+
+    Tablero
+     
+*/
 
 function cuadrado(numero){
     
