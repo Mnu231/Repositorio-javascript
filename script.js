@@ -89,7 +89,7 @@ function cuadrado(numero){
     if (numero == 2 || numero == 11) {
         document.getElementById("e").style.display = 'inline'
         document.getElementById("v").style.display = 'inline'
-        document.getElementById("del").style.display = 'inline'
+        document.getElementById("del1").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline' 
         teclaS1()
     }
@@ -98,7 +98,7 @@ function cuadrado(numero){
         document.getElementById("n").style.display = 'inline'
         document.getElementById("t3").style.display = 'inline'
         document.getElementById("e3").style.display = 'inline'
-        document.getElementById("del").style.display = 'inline'
+        document.getElementById("del2").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
         
         teclaS2()
@@ -107,7 +107,7 @@ function cuadrado(numero){
     if (numero == 37 || numero == 46) {
         document.getElementById("i").style.display = 'inline'
         document.getElementById("d").style.display = 'inline'
-        document.getElementById("del").style.display = 'inline'
+        document.getElementById("del3").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
         
         teclaS3()
@@ -117,7 +117,7 @@ function cuadrado(numero){
     if (numero == 47 || numero == 48) {
         document.getElementById("o").style.display = 'inline'
         document.getElementById("m").style.display = 'inline'
-        document.getElementById("del").style.display = 'inline'
+        document.getElementById("del4").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
         
         teclaS4()
@@ -127,7 +127,7 @@ function cuadrado(numero){
         document.getElementById("t").style.display = 'inline'
         document.getElementById("s").style.display = 'inline'
         document.getElementById("c").style.display = 'inline'
-        document.getElementById("del").style.display = 'inline'
+        document.getElementById("del5").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
         
         teclaS5()
@@ -138,7 +138,7 @@ function cuadrado(numero){
         document.getElementById("p2").style.display = 'inline'
         document.getElementById("a2").style.display = 'inline'
         document.getElementById("r").style.display = 'inline'
-        document.getElementById("del").style.display = 'inline'
+        document.getElementById("del6").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
         
         teclaS6()
@@ -147,7 +147,7 @@ function cuadrado(numero){
     if (numero == 17 || numero == 26) {
         document.getElementById("o2").style.display = 'inline'
         document.getElementById("p").style.display = 'inline'
-        document.getElementById("del").style.display = 'inline'
+        document.getElementById("del7").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
         
         teclaS7()
@@ -157,7 +157,7 @@ function cuadrado(numero){
         document.getElementById("r4").style.display = 'inline'
         document.getElementById("a").style.display = 'inline'
         document.getElementById("y").style.display = 'inline'
-        document.getElementById("del").style.display = 'inline'
+        document.getElementById("del9").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
         
         teclaS9()
@@ -167,7 +167,7 @@ function cuadrado(numero){
         document.getElementById("i2").style.display = 'inline'
         document.getElementById("g").style.display = 'inline'
         document.getElementById("r3").style.display = 'inline'
-        document.getElementById("del").style.display = 'inline'
+        document.getElementById("del10").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
         
         teclaS10()
@@ -178,7 +178,7 @@ function cuadrado(numero){
         document.getElementById("i3").style.display = 'inline'
         document.getElementById("f2").style.display = 'inline'
         document.getElementById("y3").style.display = 'inline'
-        document.getElementById("del").style.display = 'inline'
+        document.getElementById("del11").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
         
         teclaS11()
@@ -186,7 +186,7 @@ function cuadrado(numero){
     if (numero == 87 || numero == 88) {
         document.getElementById("e2").style.display = 'inline'
         document.getElementById("l").style.display = 'inline'
-        document.getElementById("del").style.display = 'inline'
+        document.getElementById("del12").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
         
         teclaS12()
@@ -201,14 +201,20 @@ FUNCIONES TECLADO
 
 //FunciónSeccion1
 function teclaS1(letra){
-    
     if(letra != undefined){
-        if(document.getElementById("2").textContent != "e" && document.getElementById("2").textContent != "v"){
-            document.getElementById("2").textContent = `${letra}`
-        }else{
-            document.getElementById("11").textContent = `${letra}`
-        } 
+
+        if (letra != "del") {
+            (document.getElementById("2").textContent != "e" && document.getElementById("2").textContent != "v")?  document.getElementById("2").textContent = `${letra}` : document.getElementById("11").textContent = `${letra}`  
+        } else {
+            if (document.getElementById("11").textContent == " " ) {
+                document.getElementById("2").textContent = " "
+            } else {
+                document.getElementById("11").textContent = " "
+            }
+        }
+        
     }
+   
     
     enviar()
 }
@@ -217,19 +223,35 @@ function teclaS1(letra){
 function teclaS2(letra){
     
     if(letra != undefined){
-        if(document.getElementById("20").textContent != "t" && document.getElementById("20").textContent != "n" && document.getElementById("20").textContent != "e"){
-            document.getElementById("20").textContent = `${letra}`
-        }else{
-            if(document.getElementById("29").textContent != "t" && document.getElementById("29").textContent != "n" && document.getElementById("29").textContent != "e"){
-                document.getElementById("29").textContent = `${letra}`
+        if (letra != "del") {
+            if(document.getElementById("20").textContent != "t" && document.getElementById("20").textContent != "n" && document.getElementById("20").textContent != "e"){
+                document.getElementById("20").textContent = `${letra}`
             }else{
-                if(document.getElementById("30").textContent != "t" && document.getElementById("30").textContent != "n" && document.getElementById("30").textContent != "e"){
-                    document.getElementById("30").textContent = `${letra}`
+                if(document.getElementById("29").textContent != "t" && document.getElementById("29").textContent != "n" && document.getElementById("29").textContent != "e"){
+                    document.getElementById("29").textContent = `${letra}`
                 }else{
-                    document.getElementById("38").textContent = `${letra}`
+                    if(document.getElementById("30").textContent != "t" && document.getElementById("30").textContent != "n" && document.getElementById("30").textContent != "e"){
+                        document.getElementById("30").textContent = `${letra}`
+                    }else{
+                        document.getElementById("38").textContent = `${letra}`
+                    }
                 }
             }
-        } 
+        }else{
+            if(document.getElementById("38").textContent == " "){
+                if(document.getElementById("30").textContent == " "){
+                    if(document.getElementById("29").textContent == " "){
+                        document.getElementById("20").textContent = " "
+                    }else{
+                        document.getElementById("29").textContent = " "
+                    }
+                }else{
+                    document.getElementById("30").textContent = " "
+                }
+            }else{
+                document.getElementById("38").textContent = " "
+            }
+        }
     }
     
     enviar()
@@ -240,8 +262,15 @@ function teclaS3(letra){
     
     if(letra != undefined){
 
-
-        (document.getElementById("37").textContent != "i" && document.getElementById("37").textContent != "d")?  document.getElementById("37").textContent = `${letra}` : document.getElementById("46").textContent = `${letra}`
+        if (letra != "del") {
+            (document.getElementById("37").textContent != "i" && document.getElementById("37").textContent != "d")?  document.getElementById("37").textContent = `${letra}` : document.getElementById("46").textContent = `${letra}`  
+        } else {
+            if (document.getElementById("46").textContent == " " ) {
+                document.getElementById("37").textContent = " "
+            } else {
+                document.getElementById("46").textContent = " "
+            }
+        }
         
     }
     
@@ -252,8 +281,16 @@ function teclaS4(letra){
     
     if(letra != undefined){
 
-        (document.getElementById("47").textContent != "o" && document.getElementById("47").textContent != "m")? document.getElementById("47").textContent = `${letra}` : document.getElementById("48").textContent = `${letra}`
-   
+        if (letra != "del") {
+            (document.getElementById("47").textContent != "o" && document.getElementById("47").textContent != "m")?  document.getElementById("47").textContent = `${letra}` : document.getElementById("48").textContent = `${letra}`  
+        } else {
+            if (document.getElementById("48").textContent == " " ) {
+                document.getElementById("47").textContent = " "
+            } else {
+                document.getElementById("48").textContent = " "
+            }
+        }
+
     }
     
     enviar()
@@ -263,21 +300,36 @@ function teclaS4(letra){
 function teclaS5(letra){
     
     if(letra != undefined){
-        if(document.getElementById("31").textContent != "t" && document.getElementById("31").textContent != "s" && document.getElementById("31").textContent != "c"){
-            document.getElementById("31").textContent = `${letra}`
-        }else{
-            if(document.getElementById("32").textContent != "t" && document.getElementById("32").textContent != "s" && document.getElementById("32").textContent != "c"){
-                document.getElementById("32").textContent = `${letra}`
+        if (letra != "del") {
+            if(document.getElementById("31").textContent != "t" && document.getElementById("31").textContent != "s" && document.getElementById("31").textContent != "c"){
+                document.getElementById("31").textContent = `${letra}`
             }else{
-                if(document.getElementById("33").textContent != "t" && document.getElementById("33").textContent != "s" && document.getElementById("33").textContent != "c"){
-                    document.getElementById("33").textContent = `${letra}`
+                if(document.getElementById("32").textContent != "t" && document.getElementById("32").textContent != "s" && document.getElementById("32").textContent != "c"){
+                    document.getElementById("32").textContent = `${letra}`
                 }else{
-                    document.getElementById("41").textContent = `${letra}`
+                    if(document.getElementById("33").textContent != "t" && document.getElementById("33").textContent != "s" && document.getElementById("33").textContent != "c"){
+                        document.getElementById("33").textContent = `${letra}`
+                    }else{
+                        document.getElementById("41").textContent = `${letra}`
+                    }
                 }
+            } 
+        } else {
+            if(document.getElementById("41").textContent == " "){
+                if(document.getElementById("33").textContent == " "){
+                    if(document.getElementById("32").textContent == " "){
+                        document.getElementById("31").textContent = " "
+                    }else{
+                        document.getElementById("32").textContent = " "
+                    }
+                }else{
+                    document.getElementById("33").textContent = " "
+                }
+            }else{
+                document.getElementById("41").textContent = " "
             }
-        } 
+        }
     }
-    
     enviar()
 }
 
@@ -285,21 +337,36 @@ function teclaS5(letra){
 function teclaS6(letra){
     
     if(letra != undefined){
-        if(document.getElementById("34").textContent != "a" && document.getElementById("34").textContent != "p" && document.getElementById("34").textContent != "e" && document.getElementById("34").textContent != "r"){
-            document.getElementById("34").textContent = `${letra}`
-        }else{
-            if(document.getElementById("35").textContent != "a" && document.getElementById("35").textContent != "p" && document.getElementById("35").textContent != "e" && document.getElementById("34").textContent != "r"){
-                document.getElementById("35").textContent = `${letra}`
+        if (letra != "del") {
+            if(document.getElementById("34").textContent != "a" && document.getElementById("34").textContent != "p" && document.getElementById("34").textContent != "e" && document.getElementById("34").textContent != "r"){
+                document.getElementById("34").textContent = `${letra}`
             }else{
-                if(document.getElementById("36").textContent != "a" && document.getElementById("36").textContent != "p" && document.getElementById("36").textContent != "e" && document.getElementById("34").textContent != "r"){
-                    document.getElementById("36").textContent = `${letra}`
+                if(document.getElementById("35").textContent != "a" && document.getElementById("35").textContent != "p" && document.getElementById("35").textContent != "e" && document.getElementById("35").textContent != "r"){
+                    document.getElementById("35").textContent = `${letra}`
                 }else{
-                    document.getElementById("43").textContent = `${letra}`
+                    if(document.getElementById("36").textContent != "a" && document.getElementById("36").textContent != "p" && document.getElementById("36").textContent != "e" && document.getElementById("36").textContent != "r"){
+                        document.getElementById("36").textContent = `${letra}`
+                    }else{
+                        document.getElementById("43").textContent = `${letra}`
+                    }
                 }
+            }     
+        } else {
+            if(document.getElementById("43").textContent == " "){
+                if(document.getElementById("36").textContent == " "){
+                    if(document.getElementById("35").textContent == " "){
+                        document.getElementById("34").textContent = " "
+                    }else{
+                        document.getElementById("35").textContent = " "
+                    }
+                }else{
+                    document.getElementById("36").textContent = " "
+                }
+            }else{
+                document.getElementById("43").textContent = " "
             }
-        } 
+        }
     }
-    
     enviar()
 }
 
@@ -307,9 +374,15 @@ function teclaS6(letra){
 function teclaS7(letra){
     
     if(letra != undefined){
-
-        (document.getElementById("17").textContent != "o" && document.getElementById("17").textContent != "p")?  document.getElementById("17").textContent = `${letra}` : document.getElementById("26").textContent = `${letra}`
-        
+        if (letra != "del") {
+            (document.getElementById("17").textContent != "o" && document.getElementById("17").textContent != "p")?  document.getElementById("17").textContent = `${letra}` : document.getElementById("26").textContent = `${letra}`
+        } else {
+            if (document.getElementById("26").textContent == " " ) {
+                document.getElementById("17").textContent = " "
+            } else {
+                document.getElementById("26").textContent = " "
+            }
+        }
     }
     
     enviar()
@@ -319,15 +392,28 @@ function teclaS7(letra){
 function teclaS9(letra){
     
     if(letra != undefined){
-        if(document.getElementById("52").textContent != "a" && document.getElementById("52").textContent != "y" && document.getElementById("52").textContent != "r"){
-            document.getElementById("52").textContent = `${letra}`
-        }else{
-            if(document.getElementById("61").textContent != "a" && document.getElementById("61").textContent != "y" && document.getElementById("61").textContent != "r"){
-                document.getElementById("61").textContent = `${letra}`
+        if (letra != "del") {
+            if(document.getElementById("52").textContent != "a" && document.getElementById("52").textContent != "y" && document.getElementById("52").textContent != "r"){
+                document.getElementById("52").textContent = `${letra}`
             }else{
-                document.getElementById("70").textContent = `${letra}`
+                if(document.getElementById("61").textContent != "a" && document.getElementById("61").textContent != "y" && document.getElementById("61").textContent != "r"){
+                    document.getElementById("61").textContent = `${letra}`
+                }else{
+                    document.getElementById("70").textContent = `${letra}`
+                } 
             } 
-        } 
+            
+        } else {
+            if(document.getElementById("70").textContent == " "){
+                if(document.getElementById("61").textContent == " "){
+                    document.getElementById("52").textContent = " "
+                }else{
+                    document.getElementById("61").textContent = " "
+                }
+            }else{
+                document.getElementById("70").textContent = " "
+            }
+        }
     }
     
     enviar()
@@ -337,21 +423,36 @@ function teclaS9(letra){
 function teclaS10(letra){
     
     if(letra != undefined){
-        if(document.getElementById("50").textContent != "n" && document.getElementById("50").textContent != "i" && document.getElementById("50").textContent != "g" && document.getElementById("50").textContent != "r"){
-            document.getElementById("50").textContent = `${letra}`
-        }else{
-            if(document.getElementById("59").textContent != "n" && document.getElementById("59").textContent != "i" && document.getElementById("59").textContent != "g" && document.getElementById("59").textContent != "r"){
-                document.getElementById("59").textContent = `${letra}`
+        if (letra != "del") {
+            if(document.getElementById("50").textContent != "n" && document.getElementById("50").textContent != "i" && document.getElementById("50").textContent != "g" && document.getElementById("50").textContent != "r"){
+                document.getElementById("50").textContent = `${letra}`
             }else{
-                if(document.getElementById("68").textContent != "n" && document.getElementById("68").textContent != "i" && document.getElementById("68").textContent != "g" && document.getElementById("68").textContent != "r"){
-                    document.getElementById("68").textContent = `${letra}`
+                if(document.getElementById("59").textContent != "n" && document.getElementById("59").textContent != "i" && document.getElementById("59").textContent != "g" && document.getElementById("59").textContent != "r"){
+                    document.getElementById("59").textContent = `${letra}`
                 }else{
-                    document.getElementById("77").textContent = `${letra}`
+                    if(document.getElementById("68").textContent != "n" && document.getElementById("68").textContent != "i" && document.getElementById("68").textContent != "g" && document.getElementById("68").textContent != "r"){
+                        document.getElementById("68").textContent = `${letra}`
+                    }else{
+                        document.getElementById("77").textContent = `${letra}`
+                    }
                 }
+            }         
+        } else {
+            if(document.getElementById("77").textContent == " "){
+                if(document.getElementById("68").textContent == " "){
+                    if(document.getElementById("59").textContent == " "){
+                        document.getElementById("50").textContent = " "
+                    }else{
+                        document.getElementById("59").textContent = " "
+                    }
+                }else{
+                    document.getElementById("68").textContent = " "
+                }
+            }else{
+                document.getElementById("77").textContent = " "
             }
-        } 
-    }
-    
+        }
+        }
     enviar()
 }
 
@@ -359,25 +460,45 @@ function teclaS10(letra){
 function teclaS11(letra){
     
     if(letra != undefined){
-        if(document.getElementById("84").textContent != "w" && document.getElementById("84").textContent != "i" && document.getElementById("84").textContent != "h" && document.getElementById("84").textContent != "f" && document.getElementById("84").textContent != "y"){
-            document.getElementById("84").textContent = `${letra}`
-        }else{
-            if(document.getElementById("85").textContent != "w" && document.getElementById("85").textContent != "i" && document.getElementById("85").textContent != "h" && document.getElementById("85").textContent != "f" && document.getElementById("85").textContent != "y"){
-                document.getElementById("85").textContent = `${letra}`
+        if (letra != "del") {
+            if(document.getElementById("84").textContent != "w" && document.getElementById("84").textContent != "i" && document.getElementById("84").textContent != "h" && document.getElementById("84").textContent != "f" && document.getElementById("84").textContent != "y"){
+                document.getElementById("84").textContent = `${letra}`
             }else{
-                if(document.getElementById("86").textContent != "w" && document.getElementById("86").textContent != "i" && document.getElementById("86").textContent != "h" && document.getElementById("86").textContent != "f" && document.getElementById("86").textContent != "y"){
-                    document.getElementById("86").textContent = `${letra}`
-                }else{95
-                    if(document.getElementById("95").textContent != "w" && document.getElementById("95").textContent != "i" && document.getElementById("95").textContent != "h" && document.getElementById("95").textContent != "f" && document.getElementById("95").textContent != "y"){
-                        document.getElementById("95").textContent = `${letra}`
+                if(document.getElementById("85").textContent != "w" && document.getElementById("85").textContent != "i" && document.getElementById("85").textContent != "h" && document.getElementById("85").textContent != "f" && document.getElementById("85").textContent != "y"){
+                    document.getElementById("85").textContent = `${letra}`
+                }else{
+                    if(document.getElementById("86").textContent != "w" && document.getElementById("86").textContent != "i" && document.getElementById("86").textContent != "h" && document.getElementById("86").textContent != "f" && document.getElementById("86").textContent != "y"){
+                        document.getElementById("86").textContent = `${letra}`
                     }else{
-                        document.getElementById("104").textContent = `${letra}`
+                        if(document.getElementById("95").textContent != "w" && document.getElementById("95").textContent != "i" && document.getElementById("95").textContent != "h" && document.getElementById("95").textContent != "f" && document.getElementById("95").textContent != "y"){
+                            document.getElementById("95").textContent = `${letra}`
+                        }else{
+                            document.getElementById("104").textContent = `${letra}`
+                        }
                     }
                 }
-            }95
-        } 
-    }86
-    
+            } 
+        } else {
+            if(document.getElementById("104").textContent == " "){
+                if(document.getElementById("95").textContent == " "){
+                    if(document.getElementById("86").textContent == " "){
+                        if(document.getElementById("85").textContent == " "){
+                            document.getElementById("84").textContent = " "
+                        }else{
+                            document.getElementById("85").textContent = " "
+                        }
+                    }else{
+                        document.getElementById("86").textContent = " "
+                    }
+                }else{
+                    document.getElementById("95").textContent = " "
+                }
+            }else{
+                document.getElementById("104").textContent = " "
+            }
+        }
+        }
+
     enviar()
 }
 
@@ -385,7 +506,16 @@ function teclaS11(letra){
 function teclaS12(letra){
     
     if(letra != undefined){
-        (document.getElementById("87").textContent != "l" && document.getElementById("87").textContent != "e")? document.getElementById("87").textContent = `${letra}` : document.getElementById("88").textContent = `${letra}`
+        if (letra != "del") {
+            (document.getElementById("87").textContent != "l" && document.getElementById("87").textContent != "e")? document.getElementById("87").textContent = `${letra}` : document.getElementById("88").textContent = `${letra}`
+            
+        } else {
+            if (document.getElementById("88").textContent == " " ) {
+                document.getElementById("87").textContent = " "
+            } else {
+                document.getElementById("88").textContent = " "
+            }
+        }
     }
     
     enviar()
@@ -428,7 +558,17 @@ function enviar(tecla)
         document.getElementById("v").style.display = 'none'
         document.getElementById("i").style.display = 'none'
         document.getElementById("d").style.display = 'none'
-        document.getElementById("del").style.display = 'none'
+        document.getElementById("del1").style.display = 'none'
+        document.getElementById("del2").style.display = 'none'
+        document.getElementById("del3").style.display = 'none'
+        document.getElementById("del4").style.display = 'none'
+        document.getElementById("del5").style.display = 'none'
+        document.getElementById("del6").style.display = 'none'
+        document.getElementById("del7").style.display = 'none'
+        document.getElementById("del9").style.display = 'none'
+        document.getElementById("del10").style.display = 'none'
+        document.getElementById("del11").style.display = 'none'
+        document.getElementById("del12").style.display = 'none'
         document.getElementById("enviar").style.display = 'none'
         ganar = ganar + validarRespuesta1()
         ganar = ganar + validarRespuesta2()
@@ -439,7 +579,7 @@ function enviar(tecla)
         ganar = ganar + validarRespuesta7()
         ganar = ganar + validarRespuesta8()
         ganar = ganar + validarRespuesta9()
-        console.log(ganar)
+       
         if(ganar == 9){
             Swal.fire(
                 '¡Felicidades!',
@@ -552,7 +692,7 @@ function validarRespuesta5(){
     let c6 = document.getElementById("34").textContent
     let c7 = document.getElementById("35").textContent
     let c8 = document.getElementById("36").textContent
-    let p = c1 + c2 +c3 + c4 + c5 + c6 + c7 + c8
+    let p = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8
     console.log(p)
     if (p == "netscape"){
         document.getElementById("29").style.backgroundColor = "green"
