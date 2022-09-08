@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 body{
+    font-family: 'Roboto', sans-serif;
     background-color: rgb(18, 18, 59);
     color: white;
     display: flex;
@@ -9,6 +11,14 @@ body{
 h1{
     text-align: center;
     margin-top: 1em;
+}
+.contenedorPrincipal{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#parrafoPista{
+    font-size: small;
 }
 #contenedorTablero{
     display: flex;
@@ -26,8 +36,8 @@ h1{
 .cuadrado{
     background-color: rgb(18, 18, 59);
     border: 2px solid rgb(18, 18, 59);
-    min-width: 45px;
-    min-height: 45px;
+    min-width: 35px;
+    min-height: 35px;
     
 
 

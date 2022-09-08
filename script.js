@@ -16,7 +16,7 @@ const jugador4 = new jugador("Luis" , 1200 )
 const jugador5 = new jugador("Miguel" , 800)
 
 
-//ARRAY de palabras
+//ARRAY de jugadores
 const jugadores = [] 
 jugadores.push(jugador1)
 jugadores.push(jugador2)
@@ -908,7 +908,7 @@ function pista1(){
         }
         document.getElementById("pista1").style.display = 'none'    
     }
-    }, 10000)
+    }, 5000)
 }
 
 function pista2(){
@@ -927,7 +927,7 @@ function pista2(){
         }
         document.getElementById("pista2").style.display = 'none'    
     }
-    }, 10000)
+    }, 5000)
 }
 
 function pista3(){
@@ -946,7 +946,7 @@ function pista3(){
         }
         document.getElementById("pista3").style.display = 'none'    
     }
-    }, 10000)
+    }, 5000)
 }
 
 function pista4(){
@@ -965,7 +965,7 @@ function pista4(){
         }
         document.getElementById("pista4").style.display = 'none'    
     }
-    }, 10000)
+    }, 5000)
 }
 
 function pista5(){
@@ -984,7 +984,7 @@ function pista5(){
         }
         document.getElementById("pista5").style.display = 'none'    
     }
-    }, 10000)
+    }, 5000)
 }
 
 function pista6(){
@@ -1003,7 +1003,7 @@ function pista6(){
         }
         document.getElementById("pista6").style.display = 'none'    
     }
-    }, 10000)
+    }, 5000)
 }
 
 function pista7(){
@@ -1022,7 +1022,7 @@ function pista7(){
         }
         document.getElementById("pista7").style.display = 'none'    
     }
-    }, 10000)
+    }, 5000)
 }
 
 function pista8(){
@@ -1041,5 +1041,5 @@ function pista8(){
         }
         document.getElementById("pista8").style.display = 'none'    
     }
-    }, 10000)
+    }, 5000)
 }
