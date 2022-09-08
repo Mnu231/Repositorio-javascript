@@ -37,7 +37,7 @@ h1{
     flex-direction: column;
     align-items: center;
 }
-#botonPista{
+.botonPista{
     
     height: 50px;
     background-color:rgb(18, 18, 59);
@@ -47,6 +47,7 @@ h1{
     border: 3px;
     border-style: solid;
     border-color: white; 
+    cursor: pointer;
     
     
 }
@@ -69,4 +70,20 @@ h1{
 
 #parrafoPista{
     font-size: xx-large;
+}
+.marco {
+    display: flex;
+    font-family: calibri;
+    color: white;
+    border-radius: 30px;
+    background: black;
+    padding: 33px;
+    border: 5px solid white;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+#tiempo{
+    font-size: 200%;
+
 }

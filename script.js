@@ -1,38 +1,33 @@
 
+/*
+
+    LISTA DE JUGADORES
+
+*/
+
+
+
 
 //Objetos
-const palabra1 = new palbra("netscape" , 8 , "Empresa creadora de javascript" , 10)
-let palabra2 = structuredClone(palabra1)
-palabra2.respuesta = "pop"
-palabra2.longitud = 3 
-palabra2.pista = "Metodo que aparta el ultimo elemento de un array"
+const jugador1 = new jugador("ricky"     , 1800 )
+const jugador2 = new jugador("Martin"    , 1600 )
+const jugador3 = new jugador("Chayane" , 1300)
+const jugador4 = new jugador("Luis" , 1200 )
+const jugador5 = new jugador("Miguel" , 800)
 
-const palabra3 = new palbra("dom" , 3 , "Estructura de objetos que representa una página HTML" , 10)
-const palabra4 = new palbra("id" , 2 , "Empieza con B, tipo de dato que solo puede obtener 2 valores" , 10)
-const palabra5 = new palbra("it" , 2, "Palabra en plural, colección de datos relacionados como una entidad" , 10)
-const palabra6 = new palbra("Array" , 5 , "Tipo de dato que sirve para almacenar valores en forma de línea" , 10)
-const palabra7 = new palbra("while" , 5 , "Ciclo que puede ejecutarse 0 o más veces dependiendo de la condición" , 10)
-const palabra8 = new palbra("stringify" , 9 , "Método que recibe un objeto y devuelve un JSON" , 10)
-const palabra9 = new palbra("parse" , 5 , "Método que recibe un JSON y devuelve un objeto" , 10)
-const palabra10 = new palbra("evento" , 6 , "Manera en la que javascript controla las acciones de un usuario" , 10)
 
 //ARRAY de palabras
-const palabras = [] 
-palabras.push(palabra1)
-palabras.push(palabra2)
-palabras.push(palabra3)
-palabras.push(palabra4)
-palabras.push(palabra5)
-palabras.push(palabra6)
-palabras.push(palabra7)
-palabras.push(palabra8)
-palabras.push(palabra9)
-palabras.push(palabra10)
+const jugadores = [] 
+jugadores.push(jugador1)
+jugadores.push(jugador2)
+jugadores.push(jugador3)
+jugadores.push(jugador4)
+jugadores.push(jugador5)
 
-//Preguntas
-const pregunta1 = '¿Qué empresa creo java script?'
-const pregunta2 = 'Metodo que aparta el ultimo elemento de un array'
-const pregunta3 = 'Estructura de objetos que representa una página HTML'
+//local Storage
+localStorage.setItem('jugadoresJson', JSON.stringify([jugadores]))
+
+
 
 //Variables
 let ContadorPistas = 3;
@@ -43,6 +38,40 @@ let seleccion
 let palabraActual = []
 
 //Codigo
+
+
+
+/*
+
+    CRONÓMETRO
+
+*/
+
+ let tiempoRef = Date.now()
+ let acumulado = 0
+ let cronometrar = true
+ setInterval(() => {
+    let tiempo = document.getElementById("tiempo")
+    if(cronometrar){
+        acumulado += Date.now() - tiempoRef
+    }
+    tiempoRef = Date.now()
+    tiempo.innerHTML = formatearMS(acumulado) 
+ }, 1000/60 )
+
+ function formatearMS(tiempo_ms){
+    let MS = tiempo_ms % 1000
+
+    let St = Math.floor(((tiempo_ms - MS) / 1000))
+
+    let S = St % 60
+    let M = Math.floor((St / 60) % 60)
+    let H = Math.floor((St / 60/60))
+    Number.prototype.ceros = function(n){
+        return (this+"").padStart(n,0)
+    }
+    return H.ceros(2) + ":" + M.ceros(2) + ":" + S.ceros(2) 
+ }
 
 /*
 
@@ -84,95 +113,159 @@ fetch(`http://api.openweathermap.org/geo/1.0/direct?q=BuenosAires,CABA,arg&limit
      
 */
 
+function despejar(){
+    for (let i = 1; i < 9; i++) {
+        document.getElementById(`pista${i}`).style.display = "none"
+    }
+    
+        document.getElementById("r4").style.display = 'none'
+        document.getElementById("w").style.display = 'none'
+        document.getElementById("h").style.display = 'none'
+        document.getElementById("i3").style.display = 'none'
+        document.getElementById("f2").style.display = 'none'
+        document.getElementById("y3").style.display = 'none'
+        document.getElementById("n2").style.display = 'none'
+        document.getElementById("i2").style.display = 'none'
+        document.getElementById("g").style.display = 'none'
+        document.getElementById("r3").style.display = 'none'
+        document.getElementById("e4").style.display = 'none'
+        document.getElementById("p2").style.display = 'none'
+        document.getElementById("a2").style.display = 'none'
+        document.getElementById("r").style.display = 'none'
+        document.getElementById("n").style.display = 'none'
+        document.getElementById("t3").style.display = 'none'
+        document.getElementById("e3").style.display = 'none'
+        document.getElementById("t").style.display = 'none'
+        document.getElementById("s").style.display = 'none'
+        document.getElementById("c").style.display = 'none'
+        document.getElementById("e2").style.display = 'none'
+        document.getElementById("l").style.display = 'none'
+        document.getElementById("f").style.display = 'none'
+        document.getElementById("y2").style.display = 'none'
+        document.getElementById("a").style.display = 'none'
+        document.getElementById("y").style.display = 'none'
+        document.getElementById("o2").style.display = 'none'
+        document.getElementById("p").style.display = 'none'
+        document.getElementById("o").style.display = 'none'
+        document.getElementById("m").style.display = 'none'
+        document.getElementById("e").style.display = 'none'
+        document.getElementById("v").style.display = 'none'
+        document.getElementById("i").style.display = 'none'
+        document.getElementById("d").style.display = 'none'
+        document.getElementById("del1").style.display = 'none'
+        document.getElementById("del2").style.display = 'none'
+        document.getElementById("del3").style.display = 'none'
+        document.getElementById("del4").style.display = 'none'
+        document.getElementById("del5").style.display = 'none'
+        document.getElementById("del6").style.display = 'none'
+        document.getElementById("del7").style.display = 'none'
+        document.getElementById("del9").style.display = 'none'
+        document.getElementById("del10").style.display = 'none'
+        document.getElementById("del11").style.display = 'none'
+        document.getElementById("del12").style.display = 'none'
+        document.getElementById("enviar").style.display = 'none'
+}
+
 function cuadrado(numero){
     
     if (numero == 2 || numero == 11) {
+        despejar()
         document.getElementById("e").style.display = 'inline'
         document.getElementById("v").style.display = 'inline'
         document.getElementById("del1").style.display = 'inline'
-        document.getElementById("enviar").style.display = 'inline' 
+        document.getElementById("enviar").style.display = 'inline'
+        document.getElementById("pista1").style.display = 'inline' 
         teclaS1()
     }
 
     if (numero == 20 || numero == 29 || numero == 30 || numero == 38) {
+        despejar()
         document.getElementById("n").style.display = 'inline'
         document.getElementById("t3").style.display = 'inline'
         document.getElementById("e3").style.display = 'inline'
         document.getElementById("del2").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
-        
+        document.getElementById("pista2").style.display = 'inline'
         teclaS2()
     }
 
     if (numero == 37 || numero == 46) {
+        despejar()
         document.getElementById("i").style.display = 'inline'
         document.getElementById("d").style.display = 'inline'
         document.getElementById("del3").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
-        
+        document.getElementById("pista3").style.display = 'inline'
         teclaS3()
         
     }
     
     if (numero == 47 || numero == 48) {
+        despejar()
         document.getElementById("o").style.display = 'inline'
         document.getElementById("m").style.display = 'inline'
         document.getElementById("del4").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
-        
+        document.getElementById("pista4").style.display = 'inline'
         teclaS4()
     }
     
     if (numero == 31 || numero == 32 || numero == 33 || numero == 41) {
+        despejar()
         document.getElementById("t").style.display = 'inline'
         document.getElementById("s").style.display = 'inline'
         document.getElementById("c").style.display = 'inline'
         document.getElementById("del5").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
-        
+        document.getElementById("pista2").style.display = 'inline'
         teclaS5()
     }
 
     if (numero == 34 || numero == 35 || numero == 36 || numero == 43) {
+        despejar()
         document.getElementById("e4").style.display = 'inline'
         document.getElementById("p2").style.display = 'inline'
         document.getElementById("a2").style.display = 'inline'
         document.getElementById("r").style.display = 'inline'
         document.getElementById("del6").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
-        
+        document.getElementById("pista5").style.display = 'inline'
         teclaS6()
     }
     
     if (numero == 17 || numero == 26) {
+        despejar()
         document.getElementById("o2").style.display = 'inline'
         document.getElementById("p").style.display = 'inline'
         document.getElementById("del7").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
-        
+        document.getElementById("pista6").style.display = 'inline'
         teclaS7()
     }
 
     if (numero == 61 || numero == 70 || numero == 52) {
+        despejar()
         document.getElementById("r4").style.display = 'inline'
         document.getElementById("a").style.display = 'inline'
         document.getElementById("y").style.display = 'inline'
         document.getElementById("del9").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
-        
+        document.getElementById("pista5").style.display = 'inline'
         teclaS9()
     }
     if (numero == 50 || numero == 59 || numero == 68 || numero == 77) {
+        despejar()
         document.getElementById("n2").style.display = 'inline'
         document.getElementById("i2").style.display = 'inline'
         document.getElementById("g").style.display = 'inline'
         document.getElementById("r3").style.display = 'inline'
         document.getElementById("del10").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
-        
+        document.getElementById("pista7").style.display = 'inline'
         teclaS10()
     }
     if (numero == 84 || numero == 85 || numero == 86 || numero == 95 || numero == 104) {
+        despejar()
         document.getElementById("w").style.display = 'inline'
         document.getElementById("h").style.display = 'inline'
         document.getElementById("i3").style.display = 'inline'
@@ -180,15 +273,16 @@ function cuadrado(numero){
         document.getElementById("y3").style.display = 'inline'
         document.getElementById("del11").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
-        
+        document.getElementById("pista8").style.display = 'inline'
         teclaS11()
     }
     if (numero == 87 || numero == 88) {
+        despejar()
         document.getElementById("e2").style.display = 'inline'
         document.getElementById("l").style.display = 'inline'
         document.getElementById("del12").style.display = 'inline'
         document.getElementById("enviar").style.display = 'inline'
-        
+        document.getElementById("pista8").style.display = 'inline'
         teclaS12()
     }
 }
@@ -502,7 +596,7 @@ function teclaS11(letra){
     enviar()
 }
 
-//FunciónSeccion9
+//FunciónSeccion12
 function teclaS12(letra){
     
     if(letra != undefined){
@@ -524,52 +618,7 @@ function enviar(tecla)
 {
     let ganar = 0
     if(tecla == "enviar"){
-        document.getElementById("r4").style.display = 'none'
-        document.getElementById("w").style.display = 'none'
-        document.getElementById("h").style.display = 'none'
-        document.getElementById("i3").style.display = 'none'
-        document.getElementById("f2").style.display = 'none'
-        document.getElementById("y3").style.display = 'none'
-        document.getElementById("n2").style.display = 'none'
-        document.getElementById("i2").style.display = 'none'
-        document.getElementById("g").style.display = 'none'
-        document.getElementById("r3").style.display = 'none'
-        document.getElementById("e4").style.display = 'none'
-        document.getElementById("p2").style.display = 'none'
-        document.getElementById("a2").style.display = 'none'
-        document.getElementById("r").style.display = 'none'
-        document.getElementById("n").style.display = 'none'
-        document.getElementById("t3").style.display = 'none'
-        document.getElementById("e3").style.display = 'none'
-        document.getElementById("t").style.display = 'none'
-        document.getElementById("s").style.display = 'none'
-        document.getElementById("c").style.display = 'none'
-        document.getElementById("e2").style.display = 'none'
-        document.getElementById("l").style.display = 'none'
-        document.getElementById("f").style.display = 'none'
-        document.getElementById("y2").style.display = 'none'
-        document.getElementById("a").style.display = 'none'
-        document.getElementById("y").style.display = 'none'
-        document.getElementById("o2").style.display = 'none'
-        document.getElementById("p").style.display = 'none'
-        document.getElementById("o").style.display = 'none'
-        document.getElementById("m").style.display = 'none'
-        document.getElementById("e").style.display = 'none'
-        document.getElementById("v").style.display = 'none'
-        document.getElementById("i").style.display = 'none'
-        document.getElementById("d").style.display = 'none'
-        document.getElementById("del1").style.display = 'none'
-        document.getElementById("del2").style.display = 'none'
-        document.getElementById("del3").style.display = 'none'
-        document.getElementById("del4").style.display = 'none'
-        document.getElementById("del5").style.display = 'none'
-        document.getElementById("del6").style.display = 'none'
-        document.getElementById("del7").style.display = 'none'
-        document.getElementById("del9").style.display = 'none'
-        document.getElementById("del10").style.display = 'none'
-        document.getElementById("del11").style.display = 'none'
-        document.getElementById("del12").style.display = 'none'
-        document.getElementById("enviar").style.display = 'none'
+        despejar()
         ganar = ganar + validarRespuesta1()
         ganar = ganar + validarRespuesta2()
         ganar = ganar + validarRespuesta3()
@@ -579,13 +628,31 @@ function enviar(tecla)
         ganar = ganar + validarRespuesta7()
         ganar = ganar + validarRespuesta8()
         ganar = ganar + validarRespuesta9()
-       
+        
         if(ganar == 9){
+            document.getElementById("contenedorPosiciones").style.display = 'inline'
+            const array= JSON.parse(localStorage.getItem('jugadoresJson'))
+            let puntosUser = 1500
+            console.log(array[0])
+            const divTabla = document.getElementById("contenedorPosiciones")
+            divTabla.innerHTML = `
+            <div>
+            <h2>TOP 5</h2>
+            <p>Nombre : Puntaje</p>
+            <p>${array[0][0].nombre} : ${array[0][0].puntaje}</p>
+            <p>${array[0][1].nombre} : ${array[0][1].puntaje}</p>
+            <p>${array[0][2].nombre} : ${array[0][2].puntaje}</p>
+            <p>${array[0][3].nombre} : ${array[0][3].puntaje}</p>
+            <p>${array[0][4].nombre} : ${array[0][4].puntaje}</p>
+
+            </div>       
+        `
+            cronometrar = false
             Swal.fire(
-                '¡Felicidades!',
+                `Puntos = ${puntosUser}`,
                 '¡Ganaste!',
                 'success'
-            )
+                )
         }
     }
 }
@@ -816,4 +883,163 @@ function validarRespuesta9(){
         return valor
     }
     
+}
+
+/*
+
+    FUNCIONES PISTAS
+
+*/
+
+//Pista2
+function pista1(){
+    document.getElementById("parrafoPista").textContent = "Manera en la que javascript controla las acciones de un usuario"
+    for (let i = 2; i <= 47; i+= 9){
+        if (document.getElementById(i).style.backgroundColor == "white") {
+            document.getElementById(i).style.backgroundColor = "yellow"    
+        } 
+        
+    }
+    setTimeout( () =>{
+        document.getElementById("parrafoPista").textContent = " "
+    for (let i = 2; i <= 47; i+= 9){
+        if (document.getElementById(i).style.backgroundColor == "yellow") {
+            document.getElementById(i).style.backgroundColor = "white"    
+        }
+        document.getElementById("pista1").style.display = 'none'    
+    }
+    }, 10000)
+}
+
+function pista2(){
+    document.getElementById("parrafoPista").textContent = "Empresa creadora de Javascript"
+    for (let i = 29; i <= 36; i++){
+        if (document.getElementById(i).style.backgroundColor == "white") {
+            document.getElementById(i).style.backgroundColor = "yellow"    
+        } 
+        
+    }
+    setTimeout( () =>{
+        document.getElementById("parrafoPista").textContent = " "
+    for (let i = 29; i <= 36; i++){
+        if (document.getElementById(i).style.backgroundColor == "yellow") {
+            document.getElementById(i).style.backgroundColor = "white"    
+        }
+        document.getElementById("pista2").style.display = 'none'    
+    }
+    }, 10000)
+}
+
+function pista3(){
+    document.getElementById("parrafoPista").textContent = "Un ** de usuario es un identificador único de cliente mediante el cual un anunciante elige identificar a un usuario que visita su sitio web"
+    for (let i = 37; i <= 46; i+= 9){
+        if (document.getElementById(i).style.backgroundColor == "white") {
+            document.getElementById(i).style.backgroundColor = "yellow"    
+        } 
+        
+    }
+    setTimeout( () =>{
+        document.getElementById("parrafoPista").textContent = " "
+    for (let i = 37; i <= 46; i+= 9){
+        if (document.getElementById(i).style.backgroundColor == "yellow") {
+            document.getElementById(i).style.backgroundColor = "white"    
+        }
+        document.getElementById("pista3").style.display = 'none'    
+    }
+    }, 10000)
+}
+
+function pista4(){
+    document.getElementById("parrafoPista").textContent = "Estructura de objetos que representa una página HTML"
+    for (let i = 46; i <= 48; i++){
+        if (document.getElementById(i).style.backgroundColor == "white") {
+            document.getElementById(i).style.backgroundColor = "yellow"    
+        } 
+        
+    }
+    setTimeout( () =>{
+        document.getElementById("parrafoPista").textContent = " "
+    for (let i = 46; i <= 48; i++){
+        if (document.getElementById(i).style.backgroundColor == "yellow") {
+            document.getElementById(i).style.backgroundColor = "white"    
+        }
+        document.getElementById("pista4").style.display = 'none'    
+    }
+    }, 10000)
+}
+
+function pista5(){
+    document.getElementById("parrafoPista").textContent = "Tipo de dato que sirve para almacenar valores en forma de línea"
+    for (let i = 34; i <= 70; i+= 9){
+        if (document.getElementById(i).style.backgroundColor == "white") {
+            document.getElementById(i).style.backgroundColor = "yellow"    
+        } 
+        
+    }
+    setTimeout( () =>{
+        document.getElementById("parrafoPista").textContent = " "
+    for (let i = 34; i <= 70; i+= 9){
+        if (document.getElementById(i).style.backgroundColor == "yellow") {
+            document.getElementById(i).style.backgroundColor = "white"    
+        }
+        document.getElementById("pista5").style.display = 'none'    
+    }
+    }, 10000)
+}
+
+function pista6(){
+    document.getElementById("parrafoPista").textContent = "Metodo que aparta el ultimo elemento de un array"
+    for (let i = 17; i <= 35; i+= 9){
+        if (document.getElementById(i).style.backgroundColor == "white") {
+            document.getElementById(i).style.backgroundColor = "yellow"    
+        } 
+        
+    }
+    setTimeout( () =>{
+        document.getElementById("parrafoPista").textContent = " "
+    for (let i = 17; i <= 35; i+= 9){
+        if (document.getElementById(i).style.backgroundColor == "yellow") {
+            document.getElementById(i).style.backgroundColor = "white"    
+        }
+        document.getElementById("pista6").style.display = 'none'    
+    }
+    }, 10000)
+}
+
+function pista7(){
+    document.getElementById("parrafoPista").textContent = "Método que recibe un objeto y devuelve un JSON"
+    for (let i = 32; i <= 104; i+= 9){
+        if (document.getElementById(i).style.backgroundColor == "white") {
+            document.getElementById(i).style.backgroundColor = "yellow"    
+        } 
+        
+    }
+    setTimeout( () =>{
+        document.getElementById("parrafoPista").textContent = " "
+    for (let i = 32; i <= 104; i+= 9){
+        if (document.getElementById(i).style.backgroundColor == "yellow") {
+            document.getElementById(i).style.backgroundColor = "white"    
+        }
+        document.getElementById("pista7").style.display = 'none'    
+    }
+    }, 10000)
+}
+
+function pista8(){
+    document.getElementById("parrafoPista").textContent = "Ciclo que puede ejecutarse 0 o más veces dependiendo de la condición"
+    for (let i = 84; i <= 88; i++){
+        if (document.getElementById(i).style.backgroundColor == "white") {
+            document.getElementById(i).style.backgroundColor = "yellow"    
+        } 
+        
+    }
+    setTimeout( () =>{
+        document.getElementById("parrafoPista").textContent = " "
+    for (let i = 84; i <= 88; i++){
+        if (document.getElementById(i).style.backgroundColor == "yellow") {
+            document.getElementById(i).style.backgroundColor = "white"    
+        }
+        document.getElementById("pista8").style.display = 'none'    
+    }
+    }, 10000)
 }
